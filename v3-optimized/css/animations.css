@@ -1,0 +1,72 @@
+/* ==========================================================================
+   Додаткові ефекти (v2-effects)
+   Кожен ефект працює лише з класом на <html>: fx-marquee, fx-reveal, fx-parallax.
+   Без JS ефекти не вмикаються (усі правила під .js).
+   ========================================================================== */
+
+/* ---------- fx-marquee: бігучий рядок ---------- */
+@keyframes fx-ticker-scroll {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.js.fx-marquee .ticker__track.is-looped {
+  animation: fx-ticker-scroll 80s linear infinite;
+}
+
+@media (max-width: 767px) {
+  .js.fx-marquee .ticker__track.is-looped {
+    animation-duration: 50s;
+  }
+}
+
+/* ---------- fx-reveal: поява під час прокрутки ---------- */
+.js.fx-reveal .fx-reveal-item {
+  opacity: 0;
+  transform: translate3d(0, 32px, 0);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  transition-delay: var(--fx-delay, 0ms);
+}
+
+.js.fx-reveal .fx-reveal-item.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Мобільний: спрощено — лише прозорість, без зсуву й затримок */
+@media (max-width: 767px) {
+  .js.fx-reveal .fx-reveal-item {
+    transform: none;
+    transition-duration: 0.4s;
+    transition-delay: 0ms;
+  }
+}
+
+/* ---------- fx-parallax: банер (лише десктоп) ---------- */
+@media (min-width: 1024px) {
+  .js.fx-parallax .hero__img {
+    will-change: transform;
+  }
+}
+
+/* ---------- Зменшення руху: усі ефекти вимкнено ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .js.fx-marquee .ticker__track.is-looped {
+    animation: none;
+  }
+
+  .js.fx-reveal .fx-reveal-item {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .js.fx-parallax .hero__img {
+    transform: none !important;
+    will-change: auto;
+  }
+}
