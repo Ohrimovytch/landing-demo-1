@@ -322,7 +322,7 @@ button {
 
 html:not(.js) .page,
 .bg-ready .page {
-  background-image: url("../../assets/WEBP/BG_375.webp");
+  background-image: url("../../assets/optimized/BG_375.webp");
 }
 
 /* ==========================================================================
