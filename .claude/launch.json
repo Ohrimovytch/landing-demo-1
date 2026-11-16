@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "landing-static",
+      "runtimeExecutable": "powershell",
+      "runtimeArgs": ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "C:\\Users\\Design\\AppData\\Local\\Temp\\claude\\ef9a41f4ac6d39d9\\8726dfd9-540f-4aa9-b874-dbabef08f524\\scratchpad\\serve.ps1", "-Root", "C:\\Project\\Artline landing\\2026_Black friday", "-Port", "8080"],
+      "port": 8080
+    }
+  ]
+}
